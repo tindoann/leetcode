@@ -78,3 +78,47 @@ const twoSum = function(nums, target) {
 
 // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 // You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+// Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+// Output: 7 -> 0 -> 8
+// Explanation: 342 + 465 = 807.
+
+
+
+// 1. set two pointers, one for each input list. Create head of new list
+// 2. add values that our pointer are at
+// 3. check if theres a carry, add 1 
+// 4. check if sum >= 10. if it is, mod it and set carry flag = true
+// 5. move pointer foward
+// after loop, check if carry is true. If it is, add additoinal node to result list
+// return result list
+
+// Algorithm
+
+// Just like how you would sum two numbers on a piece of paper, 
+// we begin by summing the least-significant digits, 
+// which is the head of l1l1 and l2l2. Since each digit is in the 
+// range of 0 \ldots 90…9, summing two digits may "overflow". 
+// For example 5 + 7 = 125+7=12. In this case, we set the current 
+// digit to 22 and bring over the carry = 1carry=1 to the next iteration. 
+// carrycarry must be either 00 or 11 because the largest possible sum of 
+// two digits (including the carry) is 9 + 9 + 1 = 199+9+1=19.
+
+function addTwoNumbers(l1, l2){
+  let resultHead = new ListNode('head');
+  let resultNode = resultHead
+  let carry = 0 
+  while(l1 || l2 || carry) {
+    const v1 = l1 ? l1.val : 0
+    const v2 = l2 ? l2.val : 0
+    const v = v1 + v2 + carry
+
+    resultNode.next = new ListNode(v%10)
+    resultNode = resultNode.next
+    carry = v >= 10 ? 1 : 0
+    l1 = l1 && l1.next
+    l2 = l2 && l2.next 
+  }
+  return resultHead.next
+}
+
