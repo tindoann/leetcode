@@ -122,3 +122,38 @@ function addTwoNumbers(l1, l2){
   return resultHead.next
 }
 
+var addTwoNumbers = function(l1, l2) {
+  let node = null
+  const carry = arguments[2]
+  if (l1 || l2) {
+      const val1 = l1 ? l1.val : 0
+      const val2 = l2 ? l2.val : 0
+      const next1 = l1 ? l1.next : null
+      const next2 = l2 ? l2.next : null
+      const val = carry ? val1 + val2 + 1 : val1 + val2
+      node = new ListNode(val % 10)
+      node.next = addTwoNumbers(next1, next2, val >= 10)  
+  } else if (carry) {
+      node = new ListNode(1)
+      node.next = null
+  }
+  return node
+};
+
+// 3.  Kids With the Greatest Number of Candies
+
+// Given the array candies and the integer extraCandies, where candies[i] represents the number of candies that the ith kid has.
+
+// For each kid check if there is a way to distribute extraCandies among the kids such that he or she can have the greatest number of candies among them. Notice that multiple kids can have the greatest number of candies.
+
+
+ // ex 1
+
+// Input: candies = [4,2,1,1,2], extraCandies = 1
+// Output: [true,false,false,false,false] 
+// Explanation: There is only 1 extra candy, therefore only kid 1 will have the greatest 
+// number of candies among the kids regardless of who takes the extra candy.
+
+// ex 2
+// Input: candies = [12,1,12], extraCandies = 10
+// Output: [true,false,true]
