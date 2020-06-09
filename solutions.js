@@ -157,3 +157,18 @@ var addTwoNumbers = function(l1, l2) {
 // ex 2
 // Input: candies = [12,1,12], extraCandies = 10
 // Output: [true,false,true]
+
+const kidsWithCandies = (candies, extraCandies) => {
+  const greatest = Math.max(...candies)
+ const result = candies.map((candy) => candy + extraCandies >= greatest)
+ return result
+};
+
+const kidsWithCandies = (candies, extraCandies) => {
+  const greatest = Math.max(...candies);
+  const results = [];
+  for(const candy of candies){
+      results.push(candy + extraCandies >= greatest)
+  }
+  return results;
+};
