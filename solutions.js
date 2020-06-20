@@ -189,3 +189,22 @@ const kidsWithCandies = (candies, extraCandies) => {
 
 // Input: nums = [1,2,3,4,4,3,2,1], n = 4
 // Output: [1,4,2,3,3,2,4,1]
+
+var shuffle = function(nums, n) {
+  let resArr = [];
+  for (let i = 0; i < nums.length/2; i++) {
+      resArr.push(nums[i]);
+      resArr.push(nums[i + n]);
+  }
+  return resArr;
+};
+
+let result_array = [];
+    
+for(let i = 0; i < n; i++) {
+    result_array.push(nums[i], nums[n+i])
+    return result_array
+}
+
+(nums, n) => nums.map((x, i) => i % 2 === 0 ? nums[i / 2] : nums[n + (i - 1) / 2])
+
