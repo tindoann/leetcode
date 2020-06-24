@@ -222,3 +222,28 @@ for(let i = 0; i < n; i++) {
 
 // Input: address = "255.100.50.0"
 // Output: "255[.]100[.]50[.]0"
+
+let defangIPaddr = function(address) {
+  let defAddr = '';
+  for (char of address) {
+      if (char === '.') {
+          defAddr += '[.]';
+      } else {
+          defAddr += char;
+      }
+  }
+  return defAddr;
+};
+
+var defangIPaddr = function(address) {
+  var addressArray = address.split(".");
+  return addressArray.join('[.]');
+};
+
+var defangIPaddr = function(address) {
+  return address.replace(/\./g, '[.]');
+};
+
+var defangIPaddr = function(address) {
+  return address.split('.').join('[.]');
+};
