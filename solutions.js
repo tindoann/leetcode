@@ -247,3 +247,19 @@ var defangIPaddr = function(address) {
 var defangIPaddr = function(address) {
   return address.split('.').join('[.]');
 };
+
+
+// 6. Reverse Integer
+
+// Given a 32-bit signed integer, reverse digits of an integer.
+
+
+
+var reverse = function(x) {
+  let ans = parseInt(x.toString().split('').reverse().join('').toString());
+
+  if (x < 0) { ans *= -1; }
+
+  if (ans < (Math.pow(2, 31) * -1) || ans > Math.pow(2, 31) - 1) return 0;
+  return ans;
+};
