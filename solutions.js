@@ -263,3 +263,15 @@ var reverse = function(x) {
   if (ans < (Math.pow(2, 31) * -1) || ans > Math.pow(2, 31) - 1) return 0;
   return ans;
 };
+
+const reverse = x => {
+  const limit = 2147483648;
+  const k = x < 0 ? -1 : 1;
+  const n = Number(String(Math.abs(x)).split('').reverse().join(''));
+  return n > limit ? 0 : n * k;
+};
+
+var reverse = function(x) {
+  let xrev = parseInt(Math.abs(x).toString().split('').reverse().join(''));
+  return xrev > Math.pow(2,31) - 1 ? 0 : x > 0 ? xrev : xrev * -1;
+};
