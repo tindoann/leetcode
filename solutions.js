@@ -292,3 +292,45 @@ var reverse = function(x) {
 // Input: 10
 // Output: false
 // Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+
+var isPalindrome = function(x) {
+  return x === Number(x.toString().split("").reverse().join(""));
+};
+
+function isPalindrome(x)
+	{
+		var rem, temp, final = 0;
+		var number = x
+
+		temp = number;
+		while(number>0)
+		{
+			rem = number%10;
+			number = parseInt(number/10);
+			final = final*10+rem;
+		}
+		if(final==temp)
+		{
+			return true
+		}
+		else
+		{
+			return false
+		}
+  }
+
+  var isPalindrome = function(x) {
+    //Short circuit 
+    if(x < 0 || (x !== 0 && x % 10 == 0))
+        return false;
+
+    let reverse = 0;
+    
+    while (x > reverse) {
+        reverse = reverse * 10 + x % 10;
+        x = ~~(x/10);
+    }
+    
+    return x === reverse || x === ~~(reverse/10);
+};
+
