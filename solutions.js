@@ -16,6 +16,7 @@ const twoSum = (nums, target) => {
   }
 }; 
 
+// brute force
 var twoSum = function(nums, target) {
   for(var i=0;i<nums.length;i++){
       for(var j = i+1;j<nums.length;j++){
@@ -63,6 +64,8 @@ const twoSum = function(nums, target) {
       comp[target-nums[i]] = i
   }
 };
+
+// The brute force approach is simple. Loop through each element xx and find if there is another value that equals to target - xtarget−x.
 
 // we are looking for the two numbers that satisfy the condition (x + y = target)
 // he iterates through the array knowing that for each number, 
@@ -332,6 +335,30 @@ function isPalindrome(x)
     }
     
     return x === reverse || x === ~~(reverse/10);
+};
+
+
+
+var reverse = function(x) {
+  // Make the number positive and turn it into a string
+  let s = Math.abs(x).toString();
+  let arr = [];
+  // Push each "number" from last to first into an array 
+  for (let i = s.length - 1; i >= 0; i--) {
+    arr.push(s[i])
+  }
+  // Turn the reversed string into a number
+  let result = Number(arr.join(''));
+  // If the number exceeds the range, return 0
+  if (result > 2 ** 31 - 1) {
+    return 0;
+  }
+  // If the original input number was negative, turn the final number negative
+  if (x < 0) {
+    result *= -1;
+  }
+
+  return result;
 };
 
 // 8. 14. Longest Common Prefix
