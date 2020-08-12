@@ -20,12 +20,11 @@ const twoSum = (nums, target) => {
 var twoSum = function(nums, target) {
   for(var i=0;i<nums.length;i++){
       for(var j = i+1;j<nums.length;j++){
-          if(nums[i]+nums[j] == target){
-              return [i,j]
+          if(nums[j] == (target-nums[i]))
+            return [i, j]; 
           }
       }
   }
-};
 
 var twoSum = function(nums, target) {
   let obj = {}
@@ -400,3 +399,21 @@ var longestCommonPrefix = function(strs) {
       }
   return isFound ? str : ''
 };
+
+// 9. Given a string s and an integer array indices of the same length.
+// The string s will be shuffled such that the character at the ith position moves to indices[i] in the shuffled string.
+// Return the shuffled string.
+
+// Ex 1
+// Input: s = "codeleet", indices = [4,5,6,7,0,2,1,3]
+// Output: "leetcode"
+// Explanation: As shown, "codeleet" becomes "leetcode" after shuffling.
+
+// Ex. 2
+// Input: s = "abc", indices = [0,1,2]
+// Output: "abc"
+// Explanation: After shuffling, each character remains in its position.
+
+// Ex. 3. 
+// Input: s = "aiohn", indices = [3,1,4,2,0]
+// Output: "nihao"
