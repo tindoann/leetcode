@@ -417,3 +417,10 @@ var longestCommonPrefix = function(strs) {
 // Ex. 3. 
 // Input: s = "aiohn", indices = [3,1,4,2,0]
 // Output: "nihao"
+
+var restoreString = function(s, indices) {
+  return indices
+      .map((e,i)=>({l: s[i],i: e}))
+      .sort((a,b)=>a.i-b.i)
+      .map(e=>e.l).join('')
+};
