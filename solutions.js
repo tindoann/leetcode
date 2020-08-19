@@ -450,3 +450,5 @@ var restoreString = function(s, indices) {
 // Input: nums = [7,7,7,7]
 // Output: [0,0,0,0]
 
+// First, you want to find out what you are being asked to do and what you are given. I don’t think the constraint helps too much.
+
